@@ -1,6 +1,6 @@
 public class atel2 {
     public static void main(String[] args) {
-        System.out.println("blaaa");
+        System.out.println("buna");
     }
   ;
 }
