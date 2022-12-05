@@ -2,22 +2,28 @@ package DesignPatterns.ch1;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
-public class ArrayCustomIterator implements Iterator {
-    Iterator<Integer> it;
+public class ArrayCustomIterator{
+    private Integer[] v;
+    private int size;
+    private int currentIndex= -1;
 
-    public ArrayCustomIterator(int[] a) {
-
-        this.it = Arrays.stream(a).iterator();
+    public ArrayCustomIterator(Integer[] v) {
+        this.v = v;
+        this.size=v.length;
     }
 
-    @Override
     public boolean hasNext() {
-        return it.hasNext();
+        return currentIndex< size-1;
     }
 
-    @Override
     public Integer next() {
-        return it.next();
+        if(hasNext()) return v[++currentIndex];
+        return null;
     }
+
+
+
 }
