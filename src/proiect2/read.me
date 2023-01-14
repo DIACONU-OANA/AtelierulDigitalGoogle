@@ -1,0 +1,23 @@
+Adapter pattern permite unor clase sa lucreze impreuna,clase care altfel nu ar putea sa
+lucreze din cauza interfetelor incompatibile.
+
+-In problema mea muzica este stocata si se asculta de pe viniluri dar se doreste posibilitatea
+de a asculta muzica si de pe alte medii de stocare mai moderne
+
+-Am creat interfata MusicPlayer cu metoda play(Enum albumFormat,String albumName); unde albumFormat
+reprezinta tipul mediului de stocare de pe care se asculta albumul, iar albumName este numele albumului
+
+-Clasa OldPlayer implementeaza interfata MusicPlayer si poate pune muzica de pe viniluri in mod
+implicit
+
+-Am creat interfata AdvancedMusicPlayer cu 2 metode care sunt fi implementate in clasele
+ CD si USB (mediile de stocare moderne)
+
+-Vrem ca OldPlayer să redea și alte formate. Pentru a realiza acest lucru, am creat o clasa
+ FormatAdapter care implementeaza interfața MusicPlayer și utilizeaza obiecte
+ AdvancedMusicPlayer pentru a reda formatul necesar.
+
+-Astfel, prin intermediul lui FormatAdapter, daca valoarea pe care o primeste albumFormat
+ in play este difetita de VINIL, OldPlayer va fi capabil sa redea mai multe formate
+
+- Clasa Main va folosi clasa OldPlayer pentru a reda diferite formate.
